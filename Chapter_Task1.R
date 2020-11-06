@@ -32,7 +32,7 @@ q
 f<-p + c(1,2)
 f
 #vector multiplication
-u<-1:5
+u<-1:6
 u*u
 #inner multiplication
 u %*% u
