@@ -1,0 +1,89 @@
+                              Assignment: Exercise 1-2
+Get familiar to environmental (or your related field) data.Collect three (or more)
+sets of environmental or experimental data. Number of samples in each data set (n) should be more than 100. 
+Then, report the following information on the collected data.
+1. Background and data source
+2. Raw data with units
+3. Central tendency(Arithmetic Mean, Geometric Mean, Median, Mode)
+4. Variability(Range, Variance, Standard Deviation, Coefficient of Variation)
+
+Solution:
+1. Background and data source
+https://vincentarelbundock.github.io/Rdatasets/datasets.html
+
+2. Raw data with units
+
+Title: Sleep Hours for Teenagers
+
+Units: Person, Age, Outcome
+
+Number of samples: 446
+
+3. Central tendency(Arithmetic Mean, Geometric Mean, Median, Mode)
+```{r}
+sleep<-read.csv("LosingSleep.csv")
+print(sleep)
+
+#Arithmetic Mean
+print(mean(sleep$Age))
+print(mean(sleep$Person))
+print(mean(sleep$Outcome))
+
+#Geometric Mean
+length(sleep$Person)
+x<-1/(length(sleep$Person))
+x
+prod(sleep$Age)
+prod(sleep$Person)^(1/length(sleep$Person))
+prod(sleep$Age)^(1/length(sleep$Age))
+prod(sleep$Outcome)^(1/length(sleep$Outcome))
+
+#median
+median(sleep$Person) 
+median(sleep$Age)
+median(sleep$Outcome)
+
+#mode
+
+m <- names(sleep$Person)[which(sleep$Person == max(sleep$Person))] 
+print(m)
+
+a <- names(sleep$Age)[which(sleep$Age == max(sleep$Age))] 
+print(a)
+b <- names(sleep$Outcome)[which(sleep$Outcome == max(sleep$Outcome))] 
+print(b)
+
+```
+
+4. Variability(Range, Variance, Standard Deviation, Coefficient of Variation)
+```{r}
+# Range
+print(range(sleep$Person))
+print(max(sleep$Person) - min(sleep$Person))
+
+print(range(sleep$Age))
+print(max(sleep$Age) - min(sleep$Age))
+
+print(range(sleep$Outcome))
+print(max(sleep$Outcome) - min(sleep$Outcome))
+#Variance
+print(var(sleep$Person))
+print(var(sleep$Age))
+print(var(sleep$Outcome))
+
+#standard Deviation
+print(sqrt(var(sleep$Person)))
+print(sqrt(var(sleep$Age)))
+print(sqrt(var(sleep$Outcome)))
+
+#Coefficient of Variation
+print((sqrt(var(sleep$Person)))/mean(sleep$Person))
+print((sqrt(var(sleep$Age)))/mean(sleep$Age))
+print((sqrt(var(sleep$Person)))/mean(sleep$Age))
+
+
+
+```
+
+
+
